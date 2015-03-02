@@ -6,5 +6,4 @@ This web app is used to monitor the stats of EMS members in order to be more eff
 
 ####Features
 - Member list
-- Weekly activity list
-  - List of which members still need to do weeklies
+- List of which members still need to do weekly activities

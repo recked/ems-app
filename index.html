@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="emsApp">
+<head>
+	<meta charset="UTF-8">
+	<title>EMS App</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+	<script src="app/app.module.js"></script>
+</head>
+<body ng-controller="teamList">
+	<!-- <div>{{data.results[0].user.displayName}}</div> -->
+	<ul>
+		<li ng-repeat="member in data.results">{{member.user.psnDisplayName}}</li>
+	</ul>
+</body>
+</html>

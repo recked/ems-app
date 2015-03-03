@@ -10,7 +10,9 @@
             method: 'GET',
             url: 'https://www.bungie.net/platform/Group/289784/MembersV3/?currentPage=1&itemsPerPage=50',
             headers: {
-                'X-API-Key': '1bb92ab568d446da9d90af616d961472'
+                'X-API-Key': '1bb92ab568d446da9d90af616d961472',
+                'Host': 'www.bungie.net',
+                'Connection': 'keep-alive'
             },
             data: { test: 'test' },
         }

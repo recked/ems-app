@@ -6,7 +6,7 @@
     app.controller('teamList', function ($scope, $http) {
 
         //$scope.list = 'test';
-        var req = {
+        /*var req = {
             method: 'GET',
             url: 'https://www.bungie.net/platform/Group/289784/MembersV3/?currentPage=1&itemsPerPage=50',
             headers: {
@@ -22,15 +22,15 @@
         }).error(function(data, status){
             $scope.status = status;
             console.log($scope.status);
-        });
+        });*/
 
-        /*$http.get('https://www.bungie.net/platform/Group/289784/MembersV3/?currentPage=1&itemsPerPage=50').
+        $http.get('https://www.bungie.net/platform/Group/289784/MembersV3/?currentPage=1&itemsPerPage=50').
         success(function (data) {
             $scope.data = data.Response;
         }).
         error(function (data, status) {
             $scope.status = status;
-        });*/
+        });
 
     });
 

@@ -3,35 +3,32 @@
 
     var app = angular.module('emsApp', []);
 
-    app.controller('teamList', function ($scope, $http) {
+    app.service('destinyGroup', function ($http) {
+        var teamURL = 'https://www.bungie.net/platform/Group/289784/MembersV3/?currentPage=1&itemsPerPage=50';
+        return {
+            fetchTeam: function () {
+              return $http.get(teamURL);
+            }
+        };
+    });
 
-        //$scope.list = 'test';
-        /*var req = {
-            method: 'GET',
-            url: 'https://www.bungie.net/platform/Group/289784/MembersV3/?currentPage=1&itemsPerPage=50',
-            headers: {
-                'X-API-Key': '1bb92ab568d446da9d90af616d961472',
-                'Host': 'www.bungie.net',
-                'Connection': 'keep-alive'
-            },
-            data: { test: 'test' },
-        }
+    app.service('memberLookup', function ($http, id) {
+        var memberLookupURL = 'http://www.bungie.net/Platform/User/GetBungieNetUserById/';
+        return {
+            findUser: function () {
+              return $http.get(memberLookupURL + id);
+            }
+        };
+    });
 
-        $http(req).success(function(data){
-            $scope.data = data.Response;
-        }).error(function(data, status){
-            $scope.status = status;
-            console.log($scope.status);
-        });*/
+    app.controller('teamList', function ($scope, destinyGroup) {
 
-        $http.get('https://www.bungie.net/platform/Group/289784/MembersV3/?currentPage=1&itemsPerPage=50').
-        success(function (data) {
-            $scope.data = data.Response;
-        }).
-        error(function (data, status) {
-            $scope.status = status;
+        destinyGroup.fetchTeam().success(function (team) {
+            $scope.team = team.Response;
+            //console.log($scope.team.results);
         });
 
     });
 
+ 
 })();

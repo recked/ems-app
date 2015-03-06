@@ -7,10 +7,15 @@
 	<script src="app/app.module.js"></script>
 </head>
 <body>
-	<div class="team-view" ng-controller="teamList">
-		<ul>
-			<li ng-repeat="member in data.results">{{member.user.psnDisplayName}} <span ng-show="member.clanMembershipTypes[0]">[EMSC]</span></li>
-		</ul>
+	<div class="team-view" ng-controller="teamList as clan">
+		
+		<div class="team-member" ng-repeat="member in team.results">
+			<div class="name">{{member.user.psnDisplayName}} <span ng-show="member.clanMembershipTypes[0]">[EMSC]</span></div>
+			<div class="characters">
+				<!-- <div class="character" ng-repeat=""></div> -->
+			</div>
+		</div>
+	
 	</div>
 </body>
 </html>
